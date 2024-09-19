@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { esFestivo } = require('../controllers/festivoController');
 
-router.get('/:anio/:mes/:dia', async (req, res) => {
+router.get('/verificar/:anio/:mes/:dia', async (req, res) => {
     const { anio, mes, dia } = req.params;
 
     const anioNum = parseInt(anio);

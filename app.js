@@ -11,7 +11,7 @@ mongoose.connect('mongodb://localhost:27017/festivosDB', {
 app.use(express.json());
 
 
-app.use('/festivo', festivosRouter);
+app.use('/festivos', festivosRouter);
 
 
 
