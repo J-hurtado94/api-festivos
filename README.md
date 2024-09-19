@@ -1,2 +1,2 @@
 # api-festivos
-Para ejecutar la aplicacion ejecutar el comando npm **start**
+Para ejecutar la aplicacion ejecutar el comando **npm start**
