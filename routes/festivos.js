@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { esFestivo } = require('../controllers/festivoController');
+const { esFestivo,obtenerFestivosPorAnio } = require('../controllers/festivoController');
 
 router.get('/verificar/:anio/:mes/:dia', async (req, res) => {
     const { anio, mes, dia } = req.params;
@@ -31,5 +31,22 @@ router.get('/verificar/:anio/:mes/:dia', async (req, res) => {
         resultado: resultado.esFestivo ? "Es Festivo" : "No es festivo"
     });
 });
+
+router.get('/obtener/:anio', async (req, res) => {
+    const { anio } = req.params;
+    const anioNum = parseInt(anio);
+
+    if (isNaN(anioNum)) {
+        return res.status(400).json({ error: 'Año no valido' });
+    }
+
+    const festivosAnio = await obtenerFestivosPorAnio(anioNum);
+
+    return res.json({
+        anio: anioNum,
+        festivos: festivosAnio
+    });
+});
+
 
 module.exports = router;
