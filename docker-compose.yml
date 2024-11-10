@@ -1,0 +1,24 @@
+services:
+  apifestivos:
+    build: .
+    container_name: apifestivos  # Nombra el contenedor para facilitar el monitoreo
+    depends_on:
+      - apifestivosdb
+    networks:
+      - redcalendario
+    ports:
+      - "3000:3000"  # Exponer el puerto 3000
+
+  apifestivosdb:
+    image: mongo:latest
+    container_name: apifestivosdb  # Nombra el contenedor de MongoDB
+    networks:
+      - redcalendario
+    ports:
+      - "27018:27017"
+
+networks:
+  redcalendario:
+
+volumes:
+  mongo-data:

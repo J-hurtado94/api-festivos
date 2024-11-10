@@ -4,7 +4,7 @@ const festivosRouter = require('./routes/festivos');
 const app = express();
 const port = 3000;
 
-mongoose.connect('mongodb://localhost:27017/festivosDB', {
+mongoose.connect('mongodb://apifestivosdb:27017/festivosDB', {
 
 });
 
@@ -15,4 +15,4 @@ app.use('/festivos', festivosRouter);
 
 
 
-module.exports=app
+module.exports=app 
